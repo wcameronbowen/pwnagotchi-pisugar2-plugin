@@ -83,7 +83,7 @@ class PiSugar(plugins.Plugin):
         #         ui.set("chg", "")
         #         self.is_charging = False
 
-        ui.set("bat", str(capacity) + "%")
+        ui.set("bat", f"{capacity}%")
 
         if capacity <= self.options["shutdown"]:
             logging.info(
