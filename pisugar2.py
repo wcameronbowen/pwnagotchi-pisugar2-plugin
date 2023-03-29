@@ -73,15 +73,15 @@ class PiSugar(plugins.Plugin):
         capacity = int(self.ps.get_battery_percentage().value)
 
         # new model use battery_power_plugged & battery_allow_charging to detect real charging status
-        if self.is_new_model:
-            if self.ps.get_battery_power_plugged().value and self.ps.get_battery_allow_charging().value:
-                ui.set("chg", "CHG")
-                if not self.is_charging:
-                    ui.update(force=True, new_data={"status": "Power!! I can feel it!"})
-                self.is_charging = True
-            else:
-                ui.set("chg", "")
-                self.is_charging = False
+        # if self.is_new_model:
+        #     if self.ps.get_battery_power_plugged().value and self.ps.get_battery_allow_charging().value:
+        #         ui.set("chg", "CHG")
+        #         if not self.is_charging:
+        #             ui.update(force=True, new_data={"status": "Power!! I can feel it!"})
+        #         self.is_charging = True
+        #     else:
+        #         ui.set("chg", "")
+        #         self.is_charging = False
 
         ui.set("bat", str(capacity) + "%")
 
